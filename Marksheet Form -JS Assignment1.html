@@ -1,0 +1,217 @@
+<html>
+
+<head>
+    <style>
+        .demo {
+            float: right;
+            position: absolute;
+        }
+        
+        .color {
+            float: left;
+            position: relative;
+        }
+    </style>
+    <script>
+        function marks() {
+            var a = document.form1.txtname.value;
+            document.getElementById("demoname").innerHTML = a;
+            var b = document.form1.txtfname.value;
+            document.getElementById("demofname").innerHTML = b;
+            var c = document.form1.txtins.value;
+            document.getElementById("demoins").innerHTML = c;
+            var d = document.form1.txtbatch.value;
+            document.getElementById("demobatch").innerHTML = d;
+            var e = document.form1.txtoffice.value;
+            document.getElementById("demooffice").innerHTML = e;
+            var f = document.form1.txtweb.value;
+            document.getElementById("demoweb").innerHTML = f;
+            var g = document.form1.txtit.value;
+            document.getElementById("demoit").innerHTML = g;
+            var h = document.form1.txtc.value;
+            document.getElementById("democ").innerHTML = h;
+            var txt1 = eval(parseFloat(document.form1.txtoffice.value) + parseFloat(document.form1.txtweb.value) +
+                parseFloat(document.form1.txtit.value) + parseFloat(document.form1.txtc.value));
+            document.getElementById("demototal").innerHTML = txt1;
+            var txt2 = eval(parseFloat(txt1 * 100) / 400);
+            document.getElementById("demoper").innerHTML = txt2.toFixed(2) + "%";
+
+
+            switch (true) {
+                case (txt2 >= 80):
+                    document.getElementById("demograde").innerHTML = "A1";
+                    break;
+                case (txt2 >= 70):
+                    document.getElementById("demograde").innerHTML = "A";
+                    break;
+                case (txt2 >= 60):
+                    document.getElementById("demograde").innerHTML = "B";
+                    break;
+                case (txt2 >= 50):
+                    document.getElementById("demograde").innerHTML = "C";
+                    break;
+                case (txt2 >= 40):
+                    document.getElementById("demograde").innerHTML = "D";
+                    break;
+                case (txt2 < 40):
+                    document.getElementById("demograde").innerHTML = "Fail";
+                    break;
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <div class="color">
+
+
+        <LEGEND> STUDENT INFORMATION </LEGEND>
+        <table id="tbl">
+            <form name="form1">
+                <tr>
+                    <td>First Name:</td>
+                    <td>
+                        <input type="text" name="txtname" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name:</td>
+                    <td>
+                        <input type="text" name="txtfname" />
+                    </td>
+                </tr>
+                <tr>
+
+                    <td>Institute Name:</td>
+                    <td>
+                        <input type="text" name="txtins" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Batch:</td>
+                    <td>
+                        <input type="text" name="txtbatch" />
+                    </td>
+                </tr>
+
+                <table id="tbl2">
+                    <BR>
+                    <BR>
+                    <LEGEND>SUBJECT MARKS </LEGEND>
+
+                    <tr>
+                        <td>Javascript:</td>
+                        <td>
+                            <input type="text" name="txtoffice" maxlength="2" size="10" /></td>
+
+                    </tr>
+                    <tr>
+                        <td>Python:</td>
+                        <td>
+                            <input type="text" name="txtweb" maxlength="2" size="10" /> </td>
+                    </tr>
+                    <tr>
+                        <td>Flutter</td>
+                        <td>
+                            <input type="text" name="txtit" maxlength="2" size="10" /></td>
+                    </tr>
+                    <tr>
+                        <td> C# Programing:</td>
+                        <td>
+                            <input type="text" name="txtc" maxlength="2" size="10" />
+                        </td>
+
+                    </tr>
+
+                </table>
+
+                <div class="btn">
+                    <button style="font-size:17" id="submit" type="button" onclick='marks()'>Submit</button>
+                    <button style="font-size:17" type="Reset">Reset</button>
+                </div>
+                <br>
+                <br>
+                <div class="demo">
+                    <table border="1">
+                        <tr>
+                            <TH colspan="8" width="240"> Student Information </th>
+                        </tr>
+                        <tr>
+                            <td width="135">Name:</td>
+                            <td>
+                                <FONT face="arial" id="demoname"></FONT>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="135">Father Name:</td>
+                            <td>
+                                <FONT face="arial" id="demofname"></FONT>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="135">College Programe</tr>
+                        <tr>
+                            <FONT face="arial" id="demoins"></FONT>
+
+                        </tr>
+                        <td width="135">Batch:</td>
+                        <td>
+                            <FONT face="arial" id="demobatch"></FONT>
+                        </td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" width="240"> Subjects Marks </th>
+                        </tr>
+                        <tr>
+                            <td width="135">International :</td>
+                            <td>
+                                <FONT face="arial" id="demooffice"></FONT>
+                            </td>
+                            </td>
+                            <tr>
+                                <td width="135">Web Designing:</td>
+                                <td>
+                                    <FONT face="arial" id="demoweb"></FONT>
+                                </td>
+                            </tr>
+                            <td width="135">IT:</td>
+                            <td>
+                                <FONT face="arial" id="demoit"></FONT>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="135">C# Programing:</td>
+                            <td>
+                                <FONT face="arial" id="democ"></FONT>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th colspan="8" width="240"> Marks Result </th>
+                        </tr>
+                        <tr>
+                            <td width="135">TOTAL:</td>
+                            <td>
+                                <FONT face="arial" id="demototal"></FONT>
+                            </td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="135">Percentage:</td>
+                            <td>
+                                <FONT face="arial" id="demoper"></FONT>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="135">Grade:</td>
+                            <td>
+                                <FONT face="arial" id="demograde"></FONT>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+    </div>
+
+</body>
+
+</html>

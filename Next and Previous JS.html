@@ -1,0 +1,25 @@
+<script>
+    var students = ['Bibek', 'Bikalpa', 'Bishesh', 'Rupsang', 'Sachin', 'Sabin'];
+    var groups = [
+        ['Bibek', 'Bikalpa', 'Bishesh'],
+        ['Rupsang', 'Sachin', 'Sabin'],
+        ['Astha', 'Richa', 'Diptan']
+    ];
+    var i = 0;
+    document.getElementById('show').innerHTML = students[i];
+
+    function onNext() {
+        i++;
+        document.getElementById('show').innerHTML = students[i];
+    }
+
+    function onPrev() {
+        i--;
+        document.getElementById('show').innerHTML = students[i];
+    }
+</script>
+<div id="">
+    <h1 id="show">Name</h1>
+    <button type="button" onclick="onNext">Next</button>
+    <button type="button" onclick="onPrev">Prev</button>
+</div>

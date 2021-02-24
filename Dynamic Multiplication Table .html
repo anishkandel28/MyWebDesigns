@@ -1,0 +1,64 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+</head>
+<script>
+    // for (var i = 1; i < 10; i++) {
+
+    var anish_td
+    document.write("<table border='2px;'");
+    // document.write("<tr style='height:30px;' 'text-align:center;''>");
+
+    // for (var j = 1; j <= 10; j++) {
+
+    //     if (j == 1 || i == 1) {
+    //         color_td = "#ccc";
+    //     } else {
+    //         color_td = "#fff";
+    //     }
+    var number = prompt('Enter an integer: ');
+
+    //creating a multiplication table
+    // function myFunction() {
+    for (var i = 1; i <= 5; i++) {
+
+
+        color_td = "#FDE3A7;"
+        color_tr = "#ccc;"
+
+
+        document.write("<tr style='height:30px; width:180px; color:brown;'>");
+
+        // multiply i with number
+        var result = i * number;
+
+        // display the result
+        document.write("<td>" + number + " * " +
+            i + "</td>");
+
+
+
+        document.write("<td style='width:30px;background-color:" + "'>" + result + "</td>");
+    }
+    document.getElementsByTagName("td").style.display = "block";
+
+
+    function myFunction() {
+
+
+        document.getElementById("show").onclick = function() {
+            document.getElementsByTagName("td").style.display = "block";
+            myFunction();
+        }
+</script>
+
+<body>
+
+    <div id="show">
+        <button id="show">Multiply</button>
+    </div>
+
+</body>

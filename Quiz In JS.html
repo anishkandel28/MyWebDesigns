@@ -1,0 +1,251 @@
+<head>
+    <title>Dynamic Quiz Project</title>
+    
+    
+ <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'></script>
+    
+    </body>
+</head>
+
+<body>
+    <div id='container'>
+        <div id='title'>
+            <h1>Quiz</h1>
+        </div>
+        <br/>
+        <div id='quiz'></div>
+        <div class='button' id='next'><a href='#'>Next</a></div>
+        <div class='button' id='prev'><a href='#'>Prev</a></div>
+        <div class='button' id='start'> <a href='#'>Start Over</a></div>
+
+    </div>
+
+
+
+    </html>
+
+    </html>
+    <script>
+        (function() {
+            var questions = [{
+                question: "What is the longest River?",
+                choices: ["Karnali", "Koshi", "Gandaki", "Narayani", "Mahakali"],
+                correctAnswer: "Karnali"
+            }, {
+                question: "What is the capital city of Nepal?",
+                choices: ["Kathmandu", "Pokhara", "Chitwan", "Biratnagar", "Nepalgung"],
+                correctAnswer: "Kathmandu"
+            }, {
+                question: "Who is Nepali Prime Minister?",
+                choices: ["KP Oli", "Prachanda", "Madhav Nepal", "Gagan Thapa", "Sher Bahadur"],
+                correctAnswer: "KP Oli"
+            }, {
+                question: "What is national Animal od nepal?",
+                choices: ["buffalo", "cow", "dafe", "cat", "dog"],
+                correctAnswer: "dafe"
+            }, {
+                question: "how many zones are in Nepal?",
+                choices: [14, 30, 12, 17, 18],
+                correctAnswer: 14
+            }];
+
+            var questionCounter = 0;
+            var selections = [];
+            var quiz = $('#quiz');
+
+
+            displayNext();
+
+
+            $('#next').on('click', function(e) {
+                e.preventDefault();
+
+
+                if (quiz.is(':animated')) {
+                    return false;
+                }
+                choose();
+
+
+                if (isNaN(selections[questionCounter])) {
+                    alert('Please make a selection!');
+                } else {
+                    questionCounter++;
+                    displayNext();
+                }
+            });
+
+            $('#prev').on('click', function(e) {
+                e.preventDefault();
+
+                if (quiz.is(':animated')) {
+                    return false;
+                }
+                choose();
+                questionCounter--;
+                displayNext();
+            });
+
+
+            $('#start').on('click', function(e) {
+                e.preventDefault();
+
+                if (quiz.is(':animated')) {
+                    return false;
+                }
+                questionCounter = 0;
+                selections = [];
+                displayNext();
+                $('#start').hide();
+            });
+
+
+            $('.button').on('mouseenter', function() {
+                $(this).addClass('active');
+            });
+            $('.button').on('mouseleave', function() {
+                $(this).removeClass('active');
+            });
+
+
+            function createQuestionElement(index) {
+                var qElement = $('<div>', {
+                    id: 'question'
+                });
+
+                var header = $('<h2>Question ' + (index + 1) + ':</h2>');
+                qElement.append(header);
+
+                var question = $('<p>').append(questions[index].question);
+                qElement.append(question);
+
+                var radioButtons = createRadios(index);
+                qElement.append(radioButtons);
+
+                return qElement;
+            }
+
+
+            function createRadios(index) {
+                var radioList = $('<ul>');
+                var item;
+                var input = '';
+                for (var i = 0; i < questions[index].choices.length; i++) {
+                    item = $('<li>');
+                    input = '<input type="radio" name="answer" value=' + i + ' />';
+                    input += questions[index].choices[i];
+                    item.append(input);
+                    radioList.append(item);
+                }
+                return radioList;
+            }
+
+
+            function choose() {
+                selections[questionCounter] = +$('input[name="answer"]:checked').val();
+            }
+
+
+            function displayNext() {
+                quiz.fadeOut(function() {
+                    $('#question').remove();
+
+                    if (questionCounter < questions.length) {
+                        var nextQuestion = createQuestionElement(questionCounter);
+                        quiz.append(nextQuestion).fadeIn();
+                        if (!(isNaN(selections[questionCounter]))) {
+                            $('input[value=' + selections[questionCounter] + ']').prop('checked', true);
+                        }
+
+
+                        if (questionCounter === 1) {
+                            $('#prev').show();
+                        } else if (questionCounter === 0) {
+
+                            $('#prev').hide();
+                            $('#next').show();
+                        }
+                    } else {
+                        var scoreElem = displayScore();
+                        quiz.append(scoreElem).fadeIn();
+                        $('#next').hide();
+                        $('#prev').hide();
+                        $('#start').show();
+                    }
+                });
+            }
+
+
+            function displayScore() {
+                var score = $('<p>', {
+                    id: 'question'
+                });
+
+                var numCorrect = 0;
+                for (var i = 0; i < selections.length; i++) {
+                    if (selections[i] === questions[i].correctAnswer) {
+                        numCorrect++;
+                    }
+                }
+
+                score.append(+numCorrect + ' questions ' +
+                    questions.length + "right");
+                return score;
+            }
+        })();
+        // document.getElementById('document').ready(function() {
+        //     var current = 0;
+        //     var score = 0;
+        //     var question = $('.question');
+        //     question.hide();
+        //     $('#but').hide();
+        //     $('#Score').hide();
+        //     $("button[name='start']").click(function() {
+        //         $('#First').hide();
+        //         $(question[current]).show();
+        //         $('#but').show();
+        //     });
+        //     $('#submit').hide();
+        //     $('#prev').attr('disabled', true);
+
+        //     $("#next").click(function() {
+        //         $(question[current]).hide();
+        //         current++;
+        //         $(question[current]).show();
+        //         if (current === 4) {
+        //             $('#next').attr('disabled', true);
+        //             $('#submit').show();
+        //         }
+        //         $('#prev').attr('disabled', false);
+        //     });
+        //     $("#prev").click(function() {
+        //         $(question[current]).hide();
+        //         current--;
+        //         $(question[current]).show();
+        //         if (current === 0) {
+        //             $('#prev').attr('disabled', true);
+        //         }
+        //         $('#next').attr('disabled', false);
+        //         $('#submit').hide();
+        //     });
+        //     $("#submit").click(function() {
+        //         question.hide();
+        //         for (var i = 0; i < 4; i++) {
+        //             if (parseInt($(question[i]).find('input[name="options"]:checked').val()) === 1)
+        //                 score++;
+        //         }
+        //         $('#score').text(score);
+        //         $("#Score").show();
+        //         $('#but').hide();
+        //     });
+        //     $('#restart').click(function() {
+        //         location.reload();
+        //     });
+
+        // });
+        // document.getElementsByTagName("button[name='start']").click(function() {
+        //     document.getElementById('First').hide
+        //     document.getElementByClassName(question[current]).show();
+        //     document.getElementById('but').show();
+        // });
+    </script>

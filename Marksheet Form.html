@@ -1,0 +1,142 @@
+<html>
+
+<head>
+
+    <title>Student Results</title>
+    <style>
+        #output {
+            height: 300px;
+            width: 300px;
+            color: green;
+            font-size: 20px;
+        }
+        
+        h1 {
+            font-size: 15px;
+            text-align: "center";
+        }
+    </style>
+    <script>
+        function Myfunc() {
+            var sname = document.getElementById("name").value;
+            var fathername = document.getElementById("fname").value;
+            var rolln = document.getElementById("roll").value;
+            var batch = document.getElementById("cls").value;
+            var javascript = document.getElementById("js").value;
+            var pyhton = document.getElementById("pyh").value;
+            var logic = document.getElementById("lg").value;
+            var data = document.getElementById("algo").value;
+
+            var firsth1 = document.getElementById('first');
+            var secondh1 = document.getElementById('second');
+            var thirdh1 = document.getElementById('third');
+            var fourthh1 = document.getElementById('fourth');
+            var fifthh1 = document.getElementById('fifth');
+            var sixthh1 = document.getElementById('sixth');
+            var seventhh1 = document.getElementById('seventh');
+
+            var total = parseInt(javascript) + parseInt(pyhton) + parseInt(logic) + parseInt(data);
+            var percent = total * 100 / 400;
+            firsth1.innerHTML = "Your Name is:" + sname;
+            secondh1.innerHTML = "Your Father name:" + fathername;
+            thirdh1.innerHTML = "Your Batch is:" + batch;
+            fourthh1.innerHTML = "Your Roll NO. is:" + rolln;
+            fifthh1.innerHTML = "Your Total marks are:" + total;
+            sixthh1.innerHTML = "Your Final Percentage is:" + percent + "%";
+
+            if (percent >= 80) {
+                seventhh1.innerHTML = "You have Obtained Grade A+"
+            } else if (percent >= 70) {
+                seventhh1.innerHTML = "You have Obtained Grade A"
+            } else if (percent >= 60) {
+                seventhh1.innerHTML = "You have Obtained Grade B"
+            } else if (percent >= 50) {
+                seventhh1.innerHTML = "You have Obtained Grade C"
+            } else if (percent >= 40) {
+                seventhh1.innerHTML = "You have Obtained Grade D"
+            } else if (percent >= 33) {
+                seventhh1.innerHTML = "You have Obtained Grade E"
+            } else {
+                seventhh1.innerHTML = "You are Failed"
+            }
+        }
+    </script>
+
+</head>
+
+<body>
+    <table border="2" height="500" width="500">
+        <form>
+            <tr>
+                <th colspan="2">Grade Form</th>
+            </tr>
+            <tr>
+                <td>
+                    <lablel> Student Name:</lablel>
+                </td>
+                <td> <input type="text" id="name" /></td>
+            </tr>
+            <td>
+                <lablel>Father Name:</lablel>
+            </td>
+            <td> <input type="text" id="fname" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <lablel>Roll.No:</lablel>
+                </td>
+                <td> <input type="text" id="roll" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <lablel>Class:</lablel>
+                </td>
+                <td> <input type="text" id="cls" /></td>
+            </tr>
+            <tr>
+                <th colspan="2">Subjects</th>
+            </tr>
+            <tr>
+                <td>
+
+                    <lablel>Javascript:</lablel>
+                </td>
+                <td> <input type="text" id="js" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <lablel>Python:</lablel>
+                </td>
+                <td> <input type="text" id="pyh" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <lablel>Logics & Sets:</lablel>
+                </td>
+                <td> <input type="text" id="lg" /></td>
+            </tr>
+            <tr>
+                <td>
+                    <lablel>Data Structure & Algorithms:</lablel>
+                </td>
+                <td> <input type="text" id="algo" /></td>
+            </tr>
+            <tr>
+                <td> <input type="button" value="Submit" onclick='Myfunc()' /></td>
+                <td> <input type="button" value="reset" /></td>
+            </tr>
+
+        </form>
+    </table>
+    <div id="output">
+        <h1 id="first"></h1>
+        <h1 id="second"></h1>
+        <h1 id="third"></h1>
+        <h1 id="fourth"></h1>
+        <h1 id="fifth"></h1>
+        <h1 id="sixth"></h1>
+        <h1 id="seventh"></h1>
+        <h1 id="eighth"></h1>
+        <h1 id="nineth"></h1>
+        <h1 id="tenth"></h1>
+    </div>

@@ -1,0 +1,262 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    header {
+        height: 90px;
+        background-color: #1D1D1D;
+    }
+    
+    .navbar {
+        background-color: #1D1D1D;
+        padding-top: 10spx;
+    }
+    
+    a {
+        font-size: 18px;
+        padding: 10px;
+        text-decoration: none;
+        color: gray;
+    }
+    
+    a:hover {
+        color: white;
+    }
+    
+    .nav-left {
+        float: left;
+        justify-content: space-around;
+    }
+    
+    .nav-right {
+        float: right;
+        padding-bottom: 50px;
+        padding-right: 40px;
+        padding-top: 5px;
+    }
+    
+    .nav-link:hover {
+        color: white;
+    }
+    
+    a.active {
+        color: #5DA93C;
+        text-decoration: none;
+    }
+    
+    .logo {
+        height: 50px;
+        width: auto;
+        justify-items: left;
+        padding-left: 60px;
+    }
+    
+    h1 {
+        font-size: 20px;
+        color: gray;
+        float: right;
+        padding-left: 20px;
+        padding-top: 10px;
+    }
+    
+    .form-control {
+        background-color: #1D1D1D;
+        border-radius: 20px;
+        border: 0.5px solid gray;
+        width: 300px;
+        height: 40px;
+        overflow: hidden;
+        padding-right: 50px;
+        outline: none;
+    }
+    
+    section {
+        height: 300px;
+        width: auto;
+        padding: 50px;
+        background-color: #171717;
+        padding: 10px;
+    }
+    
+    h2 {
+        color: #5A5A5A;
+        text-align: center;
+        padding-right: 500px;
+        font-size: 20px;
+    }
+    
+    #form {
+        height: 40px;
+        width: 500px;
+        border-radius: 5px;
+    }
+    
+    #searchbtn {
+        height: 40px;
+        width: 120px;
+        background-color: #5DA93C;
+        border-radius: 5px;
+        color: white;
+        font-weight: 900;
+    }
+    
+    #Searchsec {
+        text-align: center;
+        /* padding-left: 200px; */
+        width: 100%;
+        padding: 20px;
+    }
+    
+    #dropdown {
+        text-align: center;
+        margin: 10px;
+    }
+    
+    label {
+        color: #5A5A5A;
+        margin-right: 80px;
+        font-weight: 700;
+    }
+    
+    #quality {
+        width: 120px;
+        height: 40px;
+        background-color: #282828;
+        margin-right: 20px;
+        color: lightsteelblue;
+    }
+    
+    table,
+    tr,
+    td {
+        display: flex;
+        justify-content: center;
+    }
+    
+    #container {
+        background-color: #1D1D1D;
+        height: 1600px;
+    }
+    
+    h3 {
+        color: #5DA93C;
+        text-align: center;
+        font-size: 25px;
+        padding: 10px;
+    }
+    
+    #buttons {
+        text-align: center;
+    }
+    
+    .btn {
+        padding: 15px;
+        color: white;
+        border: 1px solid black;
+        font-size: 20px;
+        background-color: #1D1D1D;
+        border-radius: 5px;
+    }
+    
+    .btn:hover {
+        background-color: #5DA93C;
+    }
+    
+    footer {
+        background-color: #171717;
+        margin: 0;
+        padding: 15px;
+    }
+    
+    p {
+        text-align: center;
+        color: white;
+    }
+    /* for grid */
+    
+    ​​​​​​​​​#grid {
+        margin: 30, 40px;
+        width: auto;
+        height: 900px;
+    }
+    
+    .movie {
+        margin: 50px;
+        width: 155px;
+        height: 250px;
+        float: left;
+        padding-left: 80px;
+    }
+    
+    .movie img {
+        height: 300px;
+        width: 190px;
+        margin: auto;
+        border-radius: 5px;
+    }
+    
+    ​​​​​​​​​ .movie h5 {
+        font-size: 18px;
+        font-weight: 300;
+        margin: 0;
+    }
+    
+    .movie p {
+        font-size: 12px;
+        font-weight: 100;
+        margin: 0;
+    }
+    
+    .div-opt {
+        display: none;
+        position: relative;
+        height: 300px;
+        width: 190px;
+        background: rgba(0, 0, 0, 0.8);
+        top: -336px;
+        transition: all 0.5s;
+        border: 6px solid #5DA93C;
+    }
+    
+    .div-opt p {
+        color: white;
+        font-size: 25px;
+        margin: 1px;
+        font-weight: 700;
+    }
+    
+    .movie:hover .div-opt {
+        display: block;
+        width: 190px;
+        cursor: pointer;
+    }
+    
+    #footerbtn {
+        background-color: #1D1D1D;
+    }
+    
+    h5 {
+        color: white;
+        font-size: 12px;
+    }
+    
+    small {
+        color: white;
+        margin: 0px;
+    }
+    
+    .view {
+        background-color: #5DA93C;
+        color: white;
+        font-weight: 700;
+        position: relative;
+        right: -30px;
+        padding: 10px;
+    }
+    
+    .star {
+        color: #5DA93C;
+        size: 25px;
+    }

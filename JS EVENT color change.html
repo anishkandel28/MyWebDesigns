@@ -1,0 +1,42 @@
+<html>
+
+<head>
+
+
+</head>
+
+<body>
+    <select id="colorChoose">
+        <option>Choose a color</option>
+        <option value="purple">Purple</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="green">Green</option>
+        <option value="red">Red</option>
+        <option value="black">Black</option>
+    </select>
+
+
+    <p>Hello</p>
+    <p>Softwarica</p>
+
+
+</html>
+<script>
+    document.getElementById('colorChoose').addEventListener('change', changeColor);
+
+    function changeColor() {
+
+        var color = document.getElementById('colorChoose').value;
+
+        var list = document.getElementsByTagName('p');
+
+
+        for (var a = 0; a < list.length; a++) {
+            list[a].style.color = color;
+            list[a].style.background = color;
+
+
+        }
+    }
+</script>
